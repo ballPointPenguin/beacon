@@ -44,7 +44,7 @@ defmodule BeaconWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {BeaconWeb.LayoutView, "live.html"}
+        layout: {BeaconWeb.LayoutView, :live}
 
       unquote(view_helpers())
     end
@@ -53,7 +53,7 @@ defmodule BeaconWeb do
   def live_view_dynamic do
     quote do
       use Phoenix.LiveView,
-        layout: {BeaconWeb.DynamicLayoutView, "live_dynamic.html"}
+        layout: {BeaconWeb.DynamicLayoutView, :live_dynamic}
 
       unquote(view_helpers())
     end
@@ -90,7 +90,7 @@ defmodule BeaconWeb do
       use Phoenix.HTML
 
       # Import LiveView and .heex helpers (live_render, live_patch, <.form>, etc)
-      import Phoenix.LiveView.Helpers
+      import Phoenix.Component
       import BeaconWeb.LiveHelpers
 
       # Import basic rendering functionality (render, render_layout, etc)
